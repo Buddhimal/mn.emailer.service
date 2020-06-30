@@ -1,9 +1,8 @@
 <?php
 set_time_limit(0);
 
-$WORKING_DIRECTORY = dirname(__FILE__);
+define('WORKING_DIRECTORY', dirname(__FILE__) );
+require_once( WORKING_DIRECTORY . '/config.php' );
 
-require_once( $WORKING_DIRECTORY . '/config.php' );
-
-
-EmailqueueService::Process();
+$the_processor = new EmailqueueService();
+$the_processor->Process();

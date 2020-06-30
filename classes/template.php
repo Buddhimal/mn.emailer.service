@@ -9,12 +9,12 @@ class template {
 	function __construct($template_id, $email_type){
 		$this->template_id = $template_id;
 		$this->email_type = $email_type;
-		$this->cdn_path = $WORKING_DIRECTORY . '/email_templates';
+		$this->cdn_path = WORKING_DIRECTORY . '/email_templates';
 	}
 
 	function get_content(){
 		ob_start();
-		$cdn_url = $CDN_URL;
+		$cdn_url = CDN_URL;
 		require_once(sprintf("%s/%s/%s.php", $this->cdn_path, $this->email_type, $this->template_id));
 		return ob_get_clean();
 	}
