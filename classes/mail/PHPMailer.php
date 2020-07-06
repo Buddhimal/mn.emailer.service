@@ -279,14 +279,14 @@ class PHPMailer
      *
      * @var string
      */
-    public $Host = 'localhost';
+    public $Host = 'mail.mynumber.lk';
 
     /**
      * The default SMTP server port.
      *
      * @var int
      */
-    public $Port = 25;
+    public $Port = 587;
 
     /**
      * The SMTP HELO/EHLO name used for the SMTP connection.
@@ -339,14 +339,14 @@ class PHPMailer
      *
      * @var string
      */
-    public $Username = '';
+    public $Username = 'noreply@mynumber.lk';
 
     /**
      * SMTP password.
      *
      * @var string
      */
-    public $Password = '';
+    public $Password = '~[bsjtKy7T^t';
 
     /**
      * SMTP auth type.
