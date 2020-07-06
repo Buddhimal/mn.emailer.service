@@ -38,7 +38,7 @@ class EmailqueueService {
 
 						
 
-						$emailer = new PHPMailer();
+						$emailer = new PHPMailer\PHPMailer\PHPMailer();
 						$emailer->isHTML(TRUE);
 						$emailer->isSMTP();
 						$emailer->addAddress($new_email_item['send_to'], $new_email_item['receiver_name']);
