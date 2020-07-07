@@ -245,7 +245,7 @@ class PHPMailer
      *
      * @var string
      */
-    public $Hostname = '';
+    public $Hostname = 'mynumber.lk';
 
     /**
      * An ID to be used in the Message-ID header.
@@ -325,7 +325,7 @@ class PHPMailer
      *
      * @var bool
      */
-    public $SMTPAuth = false;
+    public $SMTPAuth = true;
 
     /**
      * Options array passed to stream_context_create when connecting via SMTP.

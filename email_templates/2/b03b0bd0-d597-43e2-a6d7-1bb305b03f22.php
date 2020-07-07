@@ -1,17 +1,14 @@
-<?php
-	global $cdn_url;
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Welcome on board</title>
 </head>
 <body style="background-color: #aeaeae; text-align: center; padding: 0px; margin: 0px; font-family: sans-serif; font-size: 11pt; color: #6b6b6b;">
-	<div style="margin-left: auto; margin-right: auto; background-color: #ffffff; width: 800px; padding: 50px 20px 10px 20px;">
-		
+	<div style="margin-left: auto; margin-right: auto; background-color: #ffffff; width: 800px; padding: 50px 20px 10px 20px; margin-top:10px;">		
 		<div style="text-align: center; margin-bottom: 30px;">
 			<div style="width: 100px; margin-left: auto; margin-right: auto; border-bottom: 2px solid #efefef;padding-bottom: 5px;">
-				<img src="<?php echo $cdn_url; ?>/email_templates/logo.png" width="100" />
+				<img src="<?php echo trim(CDN_URL, "/"); ?>/email_templates/logo.png" width="100" />
 			</div>
 		</div>
 
@@ -23,7 +20,7 @@
 		</div>
 
 		<div style="clear: both;">
-			<img src="<?php echo $cdn_url; ?>/email_templates/2/next-steps.png" width="800" />
+			<img src="<?php echo trim(CDN_URL, "/"); ?>/email_templates/2/next-steps.png" width="800" />
 		</div>
 
 	</div>

@@ -24,10 +24,11 @@ class EmailqueueService {
 
 						$vars = null;
 						if(isset($new_email_item['content']) && !empty($new_email_item['content'])){
-							$vars = json_decode($new_email_item['content']);
+							$vars = (array)json_decode($new_email_item['content']);
 						}
 
 						$template_content = $template_hanlder->get_content();
+
 						$mail_body = null;
 
 						if(!is_null($vars)){
@@ -44,26 +45,25 @@ class EmailqueueService {
 						$emailer->addAddress($new_email_item['send_to'], $new_email_item['receiver_name']);
 						$emailer->setFrom("noreply@mynumber.lk", "Team MyNumber");
 						$emailer->Body = $mail_body;
-						$emailer->Subject = $vars['#subject#'];
+						$emailer->Subject = $vars['##SUBJECT##'];
 
 						try{
-							if( $emailer->send()){
+							$send_result = $emailer->send();
+							if( !is_null( $send_result) && $send_result !== FALSE ) {
 								$email_sent_ids[] = $new_email_item['id'];
 							}else{
 								$email_failed_ids[] = array( 'id' => $new_email_item['id'], 'error' => $emailer->ErrorInfo);
 							}
-						}catch(Exception $ex){
-							// log an error
-							$email_failed_ids[] = array( 'id' => $new_email_item['id'], 'error' => "exception" . $ex->getMessage());
+						}catch(Exception $ex) {
+							$email_failed_ids[] = array( 'id' => $new_email_item['id'], 'error' => "exception" . $ex->getMessage() );
 						}
-
 					}//foreach();
 
-					if(count($email_sent_ids)>0){
+					if(count($email_sent_ids)>0) {
 						$mail_queue->update_items_delivered($email_sent_ids);
 					}
 
-					if(count($email_failed_ids)>0){
+					if(count($email_failed_ids)>0) {
 						$mail_queue->update_items_failed($email_failed_ids);
 					}
 

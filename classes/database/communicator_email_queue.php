@@ -38,7 +38,7 @@ class communicator_email_queue {
 
 			$now = date("y-m-d H:i:s");
 			/* We suppose the "errors" table contains the errors we look for */
-			$sql = sprintf("UPDATE communicator_email_queue set delivery_status = %d, updated= '%s'  WHERE id in ('%s')", EmailStatus::Pending, $now, implode("','", $delivered_emails));
+			$sql = sprintf("UPDATE communicator_email_queue set delivery_status = %d, updated= '%s', delivered='%s'  WHERE id in ('%s')", EmailStatus::Sent, $now, $now, implode("','", $delivered_emails));
 
 			$st = $db->prepare($sql);
 			$st->execute();

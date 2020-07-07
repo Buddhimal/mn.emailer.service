@@ -1,21 +1,15 @@
-<?php 
-	//b25207ab-d835-459a-9e2f-af03340c02e9.php
-	//$cdn_url = "http://localhost/mn.emailer.service";
-	//global $cdn_url;
-	global $cdn_url;
-	
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Welcome on board</title>
 </head>
 <body style="background-color: #aeaeae; text-align: center; padding: 0px; margin: 0px; font-family: sans-serif; font-size: 11pt; color: #6b6b6b;">
-	<div style="margin-left: auto; margin-right: auto; background-color: #ffffff; width: 800px; padding: 50px 20px 10px 20px;">
+	<div style="margin-left: auto; margin-right: auto; background-color: #ffffff; width: 800px; padding: 50px 20px 10px 20px; margin-top:10px;">
 		
 		<div style="text-align: center; margin-bottom: 30px;">
 			<div style="width: 100px; margin-left: auto; margin-right: auto; border-bottom: 2px solid #efefef;padding-bottom: 5px;">
-				<img src="<?php echo $cdn_url; ?>/email_templates/logo.png" width="100" />
+				<img src="<?php echo trim(CDN_URL, "/"); ?>/email_templates/logo.png" width="100" />
 			</div>
 		</div>
 
