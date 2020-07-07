@@ -42,6 +42,7 @@ class communicator_email_queue {
 
 			$st = $db->prepare($sql);
 			$st->execute();
+			$resultset = $st->fetchAll(PDO::FETCH_ASSOC);
 			$st=null;
 			$db=null;
 
@@ -74,9 +75,7 @@ class communicator_email_queue {
 		}
 
 		$db=null;
-		return $resultset;
 	}
-
 }
 
 class EmailStatus {
